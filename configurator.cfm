@@ -16,7 +16,7 @@
 </cfif>
 
 <cfif not isdefined('columnsSM')>
-    <cfset columsSM='col-sm-6'>
+    <cfset columnsSM='col-sm-6'>
 </cfif>
 
 <cfif not isdefined('columnsMD')>
