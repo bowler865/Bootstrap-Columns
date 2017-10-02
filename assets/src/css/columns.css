@@ -1,1 +1,25 @@
-@charset "UTF-8";/* CSS Document */	.mura-collection .col-lg-12:nth-child(1n+2), .mura-collection .col-lg-6:nth-child(2n+3), .mura-collection .col-lg-5:nth-child(2n+3), .mura-collection .col-lg-4:nth-child(3n+4), .mura-collection .col-lg-3:nth-child(4n+5), .mura-collection .col-lg-2:nth-child(6n+7), .mura-collection .col-lg-1:nth-child(12n+13){		clear:left	}@media(max-width:1199px){	.mura-collection .col-md-12:nth-child(1n+2), .mura-collection .col-md-6:nth-child(2n+3), .mura-collection .col-md-5:nth-child(2n+3), .mura-collection .col-md-4:nth-child(3n+4), .mura-collection .col-md-3:nth-child(4n+5), .mura-collection .col-md-2:nth-child(6n+7), .mura-collection .col-md-1:nth-child(12n+13){		clear:left	}}@media(max-width:991px){	.mura-collection .col-sm-12:nth-child(1n+2), .mura-collection .col-sm-6:nth-child(2n+3), .mura-collection .col-sm-5:nth-child(2n+3), .mura-collection .col-sm-4:nth-child(3n+4), .mura-collection .col-sm-3:nth-child(4n+5), .mura-collection .col-sm-2:nth-child(6n+7), .mura-collection .col-sm-1:nth-child(12n+13){		clear:left	}}@media(max-width:767px){	.mura-collection .col-xs-12:nth-child(1n+2), .mura-collection .col-xs-6:nth-child(2n+3), .mura-collection .col-xs-5:nth-child(2n+3), .mura-collection .col-xs-4:nth-child(3n+4), .mura-collection .col-xs-3:nth-child(4n+5), .mura-collection .col-xs-2:nth-child(6n+7), .mura-collection .col-xs-1:nth-child(12n+13){		clear:left	}}
+@charset "UTF-8";
+/* CSS Document */
+@media(min-width:1200px){
+	.mura-collection .col-lg-12:nth-child(1n+2), .mura-collection .col-lg-6:nth-child(2n+3), .mura-collection .col-lg-5:nth-child(2n+3), .mura-collection .col-lg-4:nth-child(3n+4), .mura-collection .col-lg-3:nth-child(4n+5), .mura-collection .col-lg-2:nth-child(6n+7), .mura-collection .col-lg-1:nth-child(12n+13){
+		clear:left
+	}
+}
+@media(max-width:1199px){
+	.mura-collection .col-md-12:nth-child(1n+2), .mura-collection .col-md-6:nth-child(2n+3), .mura-collection .col-md-5:nth-child(2n+3), .mura-collection .col-md-4:nth-child(3n+4), .mura-collection .col-md-3:nth-child(4n+5), .mura-collection .col-md-2:nth-child(6n+7), .mura-collection .col-md-1:nth-child(12n+13){
+		clear:left
+	}
+	.mura-collection [class^="col-lg-"]{clear:none !important;}
+}
+@media(max-width:991px){
+	.mura-collection .col-sm-12:nth-child(1n+2), .mura-collection .col-sm-6:nth-child(2n+3), .mura-collection .col-sm-5:nth-child(2n+3), .mura-collection .col-sm-4:nth-child(3n+4), .mura-collection .col-sm-3:nth-child(4n+5), .mura-collection .col-sm-2:nth-child(6n+7), .mura-collection .col-sm-1:nth-child(12n+13){
+		clear:left
+	}
+	.mura-collection [class^="col-lg-"], .mura-collection [class^="col-md-"]{clear:none;}
+}
+@media(max-width:767px){
+	.mura-collection .col-xs-12:nth-child(1n+2), .mura-collection .col-xs-6:nth-child(2n+3), .mura-collection .col-xs-5:nth-child(2n+3), .mura-collection .col-xs-4:nth-child(3n+4), .mura-collection .col-xs-3:nth-child(4n+5), .mura-collection .col-xs-2:nth-child(6n+7), .mura-collection .col-xs-1:nth-child(12n+13){
+		clear:left
+	}
+	.mura-collection [class^="col-lg-"], .mura-collection [class^="col-md-"], .mura-collection [class^="col-sm-"]{clear:none;}
+}
