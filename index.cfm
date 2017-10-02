@@ -16,6 +16,7 @@
 	<cfparam name="objectParams.imageHeight" default="AUTO">
 	<cfparam name="objectParams.imageWidth" default="AUTO">
 	<cfparam name="objectParams.modalimages" default="false">
+    <cfparam name="objectParams.linkTitles" default="true">
 
 	<cfset imageSizeArgs={
 		size=objectParams.imageSize,
@@ -25,34 +26,47 @@
 </cfsilent>
 <cfoutput>
 <div class="mura-collection">
-	<cfloop condition="iterator.hasNext()">
+<div class="row">
+  <cfloop condition="iterator.hasNext()">
     <div class="#objectParams.columnsXS# #objectParams.columnsSM# #objectParams.columnsMD# #objectParams.columnsLG#">
-	<cfsilent>
-		<cfset item=iterator.next()>
-	</cfsilent>
-	<div class="mura-collection-item">
-
-		<div class="mura-collection-item__holder">
-			<cfif listFindNoCase(objectParams.displaylist,'Image')>
-			<div class="mura-item-content">
-				<cfif item.hasImage()>
-					<cfif objectparams.modalimages>
-						<a href="#item.getImageURL(size='large')#" title="#esapiEncode('html_attr',item.getValue('title'))#" data-rel="shadowbox[gallery]" class="#this.contentListItemImageLinkClass#"><img src="#item.getImageURL(argumentCollection=imageSizeArgs)#" alt="#esapiEncode('html_attr',item.getValue('title'))#"></a>
-					<cfelse>
-						<a href="#item.getURL()#"><img src="#item.getImageURL(argumentCollection=imageSizeArgs)#" alt="#esapiEncode('html_attr',item.getValue('title'))#"></a>
-					</cfif>
-				</cfif>
-			</div>
-			</cfif>
-			#m.dspObject_include(
-				theFile='collection/includes/dsp_meta_list.cfm',
-				item=item,
-				fields=objectParams.displaylist
-			)#
-		</div>
-	</div>
-    </div>
-	</cfloop>
+      <cfsilent>
+        <cfset item=iterator.next()>
+        </cfsilent>
+      <div class="mura-collection-item">
+        
+        <div class="mura-collection-item__holder">
+          <cfif listFindNoCase(objectParams.displaylist,'Image')>
+            <div class="mura-item-content">
+              <cfif item.hasImage()>
+                <cfif objectparams.modalimages>
+                  <a href="#item.getImageURL(size='large')#" title="#esapiEncode('html_attr',item.getValue('title'))#" data-rel="shadowbox[gallery]" class="#this.contentListItemImageLinkClass#"><img src="#item.getImageURL(argumentCollection=imageSizeArgs)#" alt="#esapiEncode('html_attr',item.getValue('title'))#" class="img-responsive"></a>
+                  <cfelse>
+                  <cfif objectParams.linkTitles>
+                    <cfif item.getSubType() is 'Featured Property'>
+                      <a href="http://heritagegroupct.idxre.com/idx/detail.cfm?cid=49352&bid=17&pid=#item.getRemoteID()#&ff=1" target="_blank"><img src="#item.getImageURL(argumentCollection=imageSizeArgs)#" alt="#esapiEncode('html_attr',item.getValue('title'))#" class="img-responsive"></a>
+                      <cfelse>
+                      <a href="#item.getURL()#"><img src="#item.getImageURL(argumentCollection=imageSizeArgs)#" alt="#esapiEncode('html_attr',item.getValue('title'))#" class="img-responsive"></a>
+                      </cfif>
+                    <cfelse>
+                    <img src="#item.getImageURL(argumentCollection=imageSizeArgs)#" alt="#esapiEncode('html_attr',item.getValue('title'))#" class="img-responsive">
+                    </cfif>
+                  </cfif>
+                </cfif>
+              </div>
+            </cfif>
+          #m.dspObject_include(
+          theFile='collection/includes/dsp_meta_list.cfm',
+          item=item,
+          fields=objectParams.displaylist,
+          linkTitles=objectParams.linkTitles
+          )#
+          <a href="#item.getURL()#" class="btn">FULL BIO</a>
+          </div>
+        </div>
+      </div>
+    </cfloop>
+<div class="clearfix"></div>
+</div>
 </div>
 
 #m.dspObject_include(
@@ -70,6 +84,8 @@
   // mura.js
   Mura(function(m) {
     m.loader()
-     .loadcss(m.themepath + '/display_objects/collection/layouts/columns/assets/dist/css/columns.min.css');
+     .loadcss(m.themepath + '/display_objects/collection/layouts/bootstrap-columns/assets/dist/css/columns.min.css');
+	m.loader()
+	 .loadjs(m.themepath + '/display_objects/collection/layouts/bootstrap-columns/assets/dist/js/columns.min.js');
   });
 </script>
