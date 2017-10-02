@@ -11,27 +11,17 @@
 <cfparam name="objectParams.modalimages" default="false">
 <cfset renderer=$.getContentRenderer()>
 
-<cfif not isdefined('columnsXS')>
-    <cfset columnsXS='col-xs-12'>
-</cfif>
-
-<cfif not isdefined('columnsSM')>
-    <cfset columnsSM='col-sm-6'>
-</cfif>
-
-<cfif not isdefined('columnsMD')>
-    <cfset columnsMD='col-md-4'>
-</cfif>
-
-<cfif not isdefined('columnsLG')>
-    <cfset columnsLG='col-lg-3'>
-</cfif>
+<cfparam name="objectParams.columnsXS" default="col-xs-12">
+<cfparam name="objectParams.columnsSM" default="col-sm-6">
+<cfparam name="objectParams.columnsMD" default="col-md-4">
+<cfparam name="objectParams.columnsLG" default="col-lg-3">
+<cfparam name="objectParams.linkTitles" default="true">
 
 <div class="mura-control-group">
   	<label>Columns (XS)</label>
 	<select name="columnsXS" data-displayobjectparam="columnsXS" class="objectParam">
 		<cfloop from="1" to="12" index="cols">
-			<option value="col-xs-#cols#"<cfif columnsXS eq "col-xs-#cols#"> selected</cfif>>#cols#</option>
+			<option value="col-xs-#cols#"<cfif objectParams.columnsXS eq "col-xs-#cols#"> selected</cfif>>#cols#</option>
 		</cfloop>
 	</select>
 </div>
@@ -40,7 +30,7 @@
   	<label>Columns (SM)</label>
 	<select name="columnsSM" data-displayobjectparam="columnsSM" class="objectParam">
 		<cfloop from="1" to="12" index="cols">
-			<option value="col-sm-#cols#"<cfif columnsSM eq "col-sm-#cols#"> selected</cfif>>#cols#</option>
+			<option value="col-sm-#cols#"<cfif objectParams.columnsSM eq "col-sm-#cols#"> selected</cfif>>#cols#</option>
 		</cfloop>
 	</select>
 </div>
@@ -49,7 +39,7 @@
   	<label>Columns (MD)</label>
 	<select name="columnsMD" data-displayobjectparam="columnsMD" class="objectParam">
 		<cfloop from="1" to="12" index="cols">
-			<option value="col-md-#cols#"<cfif columnsMD eq "col-md-#cols#"> selected</cfif>>#cols#</option>
+			<option value="col-md-#cols#"<cfif objectParams.columnsMD eq "col-md-#cols#"> selected</cfif>>#cols#</option>
 		</cfloop>
 	</select>
 </div>
@@ -58,7 +48,7 @@
   	<label>Columns (LG)</label>
 	<select name="columnsLG" data-displayobjectparam="columnsLG" class="objectParam">
 		<cfloop from="1" to="12" index="cols">
-			<option value="col-lg-#cols#"<cfif columnsLG eq "col-lg-#cols#"> selected</cfif>>#cols#</option>
+			<option value="col-lg-#cols#"<cfif objectParams.columnsLG eq "col-lg-#cols#"> selected</cfif>>#cols#</option>
 		</cfloop>
 	</select>
 </div>
@@ -111,6 +101,14 @@
 	<select name="modalimages" data-displayobjectparam="modalimages" class="objectParam">
 		<cfloop list="True,False" index="i">
 			<option value="#i#"<cfif objectparams.modalimages eq i> selected</cfif>>#i#</option>
+		</cfloop>
+	</select>
+</div>
+<div class="mura-control-group">
+  	<label>Link Titles</label>
+	<select name="linkTitles" data-displayobjectparam="linkTitles" class="objectParam">
+		<cfloop list="True,False" index="i">
+			<option value="#i#"<cfif objectparams.linkTitles eq i> selected</cfif>>#i#</option>
 		</cfloop>
 	</select>
 </div>
